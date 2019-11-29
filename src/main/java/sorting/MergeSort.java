@@ -1,5 +1,10 @@
 package sorting;
 
+/**
+ * Implementation of Merge Sort - worst-case = O(nlogn)
+ * @author diont
+ *
+ */
 public class MergeSort {
 
 	// this merge sort keeps track of the indices of the array
