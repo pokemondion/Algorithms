@@ -17,7 +17,7 @@ public class QuickSort {
 		}
 	}
 	
-	public static int partition(int[] arr, int left, int right) {
+	private static int partition(int[] arr, int left, int right) {
 		int i = left, j = left - 1;
 		int pivotValue = arr[right];
 		while (i < right) {
@@ -32,7 +32,7 @@ public class QuickSort {
 		return j;
 	}
 	
-	public static void swap(int[] arr, int i, int j) {
+	private static void swap(int[] arr, int i, int j) {
 		int temp = arr[j];
 		arr[j] = arr[i];
 		arr[i] = temp;

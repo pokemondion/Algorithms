@@ -18,7 +18,7 @@ public class MergeSortTest {
 				correct = false;
 			}
 		}
-		assertTrue("Merge Sort was not implemented correctly",correct);
+		assertTrue("Merge Sort was not implemented correctly!",correct);
 	}
 
 }

@@ -8,7 +8,7 @@ import org.junit.Test;
 public class QuickSortTest {
 
 	@Test
-	public void testMergeSort() {
+	public void testQuickSort() {
 		int[] testArray = {21,61,34,85,11,24,22,21};
 		int[] expectedArray = {11,21,21,22,24,34,61,85};
 		int size = testArray.length;
@@ -20,6 +20,6 @@ public class QuickSortTest {
 				correct = false;
 			}
 		}
-		assertTrue("Quick Sort was not implemented correctly",correct);
+		assertTrue("Quick Sort was not implemented correctly!",correct);
 	}
 }
