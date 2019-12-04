@@ -7,7 +7,7 @@ import java.util.Arrays;
 import org.junit.Before;
 import org.junit.Test;
 
-public class DFSTest {
+public class GraphTesting {
 	
 	Graph g = new Graph(8);
 	
@@ -28,7 +28,7 @@ public class DFSTest {
 		g.addEdge(6, 5);
 		g.addEdge(7, 2);
 	}
-	
+
 	@Test
 	/*
 	 * Tests for ONE possible path 
@@ -48,6 +48,17 @@ public class DFSTest {
 		correct3 = Arrays.equals(expected3, testDFS);
 		correct4 = Arrays.equals(expected4, testDFS);
 		answer = (correct1 || correct2 || correct3 || correct4);
+		assertTrue("DFS was not implemented correctly!", answer);
+	}
+	
+	@Test
+	public void testBFS() {
+		int[] expected = {0,1,2,3,7,4,5,6};
+		int[] testBFS = BFS.bfs(g, 0);
+		boolean answer = Arrays.equals(expected, testBFS);
+		for (int i = 0; i < testBFS.length; i ++) {
+			System.out.print(testBFS[i] + " ");
+		}
 		assertTrue("DFS was not implemented correctly!", answer);
 	}
 

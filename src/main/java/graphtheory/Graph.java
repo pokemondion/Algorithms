@@ -18,7 +18,7 @@ public class Graph {
 	/**
 	 * Adds a connection between the two specified vertice through an adjacency list. 
 	 * Adding the connection for vertice1 does not mean it has been added for vertice 2. 
-	 * It is possible to add the same connection more than onece 
+	 * It is possible to add the same connection more than once 
 	 * @param vertice1
 	 * @param vertice2
 	 */
