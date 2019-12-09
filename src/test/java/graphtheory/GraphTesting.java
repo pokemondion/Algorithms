@@ -37,28 +37,41 @@ public class GraphTesting {
 	 * 
 	 */
 	public void testDFS() {
-		boolean correct1, correct2, correct3, correct4, answer;
+		boolean iscorrect1, iscorrect2, iscorrect3, iscorrect4, answer;
 		int[] expected1 = {0,1,3,4,5,6,2,7};
 		int[] expected2 = {0,1,3,5,6,4,2,7};
 		int[] expected3 = {0,2,7,1,3,4,5,6};
 		int[] expected4 = {0,2,7,1,3,5,6,4};
 		int[] testDFS = DFS.dfs(g, 0);
-		correct1 = Arrays.equals(expected1, testDFS);
-		correct2 = Arrays.equals(expected2, testDFS);
-		correct3 = Arrays.equals(expected3, testDFS);
-		correct4 = Arrays.equals(expected4, testDFS);
-		answer = (correct1 || correct2 || correct3 || correct4);
+		iscorrect1 = Arrays.equals(expected1, testDFS);
+		iscorrect2 = Arrays.equals(expected2, testDFS);
+		iscorrect3 = Arrays.equals(expected3, testDFS);
+		iscorrect4 = Arrays.equals(expected4, testDFS);
+		answer = (iscorrect1 || iscorrect2 || iscorrect3 || iscorrect4);
 		assertTrue("DFS was not implemented correctly!", answer);
 	}
 	
 	@Test
 	public void testBFS() {
-		int[] expected = {0,1,2,3,7,4,5,6};
+		boolean iscorrect1, iscorrect2, iscorrect3, iscorrect4, iscorrect5, iscorrect6, iscorrect7, iscorrect8, answer;
+		int[] expected1 = {0,1,2,3,7,4,5,6};
+		int[] expected2 = {0,2,1,3,7,4,5,6};
+		int[] expected3 = {0,1,2,7,3,4,5,6};
+		int[] expected4 = {0,2,1,7,3,4,5,6};
+		int[] expected5 = {0,1,2,3,7,5,4,6};
+		int[] expected6 = {0,1,2,7,3,5,4,6};
+		int[] expected7 = {0,2,1,3,7,5,4,6};
+		int[] expected8 = {0,2,1,7,3,5,4,6};
 		int[] testBFS = BFS.bfs(g, 0);
-		boolean answer = Arrays.equals(expected, testBFS);
-		for (int i = 0; i < testBFS.length; i ++) {
-			System.out.print(testBFS[i] + " ");
-		}
+		iscorrect1 = Arrays.equals(expected1, testBFS);
+		iscorrect2 = Arrays.equals(expected2, testBFS);
+		iscorrect3 = Arrays.equals(expected3, testBFS);
+		iscorrect4 = Arrays.equals(expected4, testBFS);
+		iscorrect5 = Arrays.equals(expected5, testBFS);
+		iscorrect6 = Arrays.equals(expected6, testBFS);
+		iscorrect7 = Arrays.equals(expected7, testBFS);
+		iscorrect8 = Arrays.equals(expected8, testBFS);
+		answer = (iscorrect1 || iscorrect2 || iscorrect3 || iscorrect4 || iscorrect5 || iscorrect6 || iscorrect7 || iscorrect8);
 		assertTrue("DFS was not implemented correctly!", answer);
 	}
 

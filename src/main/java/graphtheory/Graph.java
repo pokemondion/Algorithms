@@ -6,8 +6,9 @@ public class Graph {
 	
 	private int numVertices;
 	private LinkedList<Integer>[] adj; // creates an array of linked lists
-	
+
 	public Graph(int numV) {
+		// index starts at 0
 		numVertices = numV; // number of vertices
 		adj = new LinkedList[numV]; // adjacency list, size = # number of vertices
 		for (int i = 0; i < numV; i ++) {
