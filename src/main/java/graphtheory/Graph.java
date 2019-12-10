@@ -34,4 +34,37 @@ public class Graph {
 	public int getNumVertices() {
 		return numVertices;
 	}
+	
+	public boolean containsCycle() {
+		boolean[] visited = new boolean[numVertices];
+		boolean[] recStack = new boolean[numVertices];
+		
+		for (int i = 0; i < numVertices; i ++) {
+			if (containsCycleHelper(i, visited, recStack)) {
+				return true;
+			}
+		}
+		return false;
+	}
+	
+	private boolean containsCycleHelper(int i, boolean[] visited,  boolean[] recStack) {
+		if (recStack[i]) {
+			return true;
+		}
+		if (visited[i]) {
+			return false;
+		}
+		
+		recStack[i] = true;
+		visited[i] = true;
+		LinkedList<Integer> list = adj[i];
+		for (Integer val : list) {
+			if (containsCycleHelper(val, visited, recStack)) {
+				return true;
+			}
+		}
+		recStack[i] = false;
+		
+		return false;
+	}
 }

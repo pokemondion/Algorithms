@@ -3,6 +3,8 @@ package graphtheory;
 import java.util.LinkedList;
 import java.util.Queue;
 
+import graphtheory.WeightedGraph.Edge;
+
 public class BFS {
 	
 	public static int[] bfs(Graph g, int vertice) {

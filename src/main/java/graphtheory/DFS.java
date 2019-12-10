@@ -36,12 +36,10 @@ public class DFS {
 	// recursive implementation
 	private static void dfsHelper(LinkedList<Integer>[] adj, boolean[] visited, int vertice, Stack stack) {
 		visited[vertice] = true;
-		Iterator<Integer> iter = adj[vertice].iterator();
 		stack.push(vertice);
-		while (iter.hasNext()) {
-			int nextVertice = iter.next();
-			if (!visited[nextVertice]) {
-				dfsHelper(adj, visited, nextVertice, stack);
+		for (int node : adj[vertice]) {
+			if (!visited[node]) {
+				dfsHelper(adj, visited, node, stack);
 			}
 		}
 	}

@@ -7,7 +7,7 @@ import java.util.Arrays;
 import org.junit.Before;
 import org.junit.Test;
 
-public class GraphTesting {
+public class DFSBFSTest {
 	
 	Graph g = new Graph(8);
 	
