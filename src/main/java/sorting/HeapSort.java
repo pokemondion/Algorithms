@@ -6,13 +6,19 @@ public class HeapSort {
 	
 	public static void HeapHippityHopSort(int[] array) {
 		int size = array.length;
-
-		for (int i = size; i > 0; i --) {
-			
+		int[] newArray = new int[size];
+		for (int i = size-1; i >= 0; i --) {
+//			int[] copyArray = new int[i];
+//			copyArray = Arrays.copyOfRange(newArray, 0, i);
+			array = Arrays.copyOfRange(array, 0, i + 1);
 			constructMaxHeap(array);
-		//	swap(0, i-1, array);
-			
+			swap(0, i, array);
+//			newArray[i-1] = copyArray[i-1];
+//			copyArray = Arrays.copyOfRange(array, 0, i);
 		}
+//		for (int i = 0; i < size; i ++) {
+//			array[i] = newArray[i];
+//		}
 	}
 	
 	private static int rightChildPos(int pos) {
@@ -31,7 +37,7 @@ public class HeapSort {
 		return false;
 	}
 	
-	private static void constructMaxHeap(int[] array) {
+	public static void constructMaxHeap(int[] array) {
 		int size = array.length;
 		for (int i = size/2; i >= 0; i --) {
 			downMaxHeap(i, array);
@@ -42,14 +48,22 @@ public class HeapSort {
 		int pos = index + 1;
 		int size = array.length;
 		if (!isLeaf(pos, array)) {
-			if (array[leftChildPos(pos) - 1] > array[index] || array[rightChildPos(pos) - 1] > array[index]) {
-				if (array[leftChildPos(pos) - 1] > array[rightChildPos(pos) - 1]) {
+			if (rightChildPos(pos) <= size) {
+				if (array[leftChildPos(pos) - 1] > array[index] || array[rightChildPos(pos) - 1] > array[index]) {
+					if (array[leftChildPos(pos) - 1] > array[rightChildPos(pos) - 1]) {
+						swap(index, leftChildPos(pos) - 1, array);
+						downMaxHeap(leftChildPos(pos) - 1, array);
+					}
+					else {
+						swap(index, rightChildPos(pos) - 1, array);
+						downMaxHeap(rightChildPos(pos) - 1, array);
+					}
+				}			
+			}
+			else if (leftChildPos(pos) <= size) {
+				if (array[leftChildPos(pos) - 1] > array[index]) {
 					swap(index, leftChildPos(pos) - 1, array);
 					downMaxHeap(leftChildPos(pos) - 1, array);
-				}
-				else {
-					swap(index, rightChildPos(pos) - 1, array);
-					downMaxHeap(rightChildPos(pos) - 1, array);
 				}
 			}
 		}
