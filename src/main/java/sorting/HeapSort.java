@@ -6,19 +6,11 @@ public class HeapSort {
 	
 	public static void HeapHippityHopSort(int[] array) {
 		int size = array.length;
-		int[] newArray = new int[size];
+		int[] newArray = Arrays.copyOf(array, size);
+		constructMaxHeap(newArray);
 		for (int i = size-1; i >= 0; i --) {
-//			int[] copyArray = new int[i];
-//			copyArray = Arrays.copyOfRange(newArray, 0, i);
-			array = Arrays.copyOfRange(array, 0, i + 1);
-			constructMaxHeap(array);
-			swap(0, i, array);
-//			newArray[i-1] = copyArray[i-1];
-//			copyArray = Arrays.copyOfRange(array, 0, i);
+			array[i] = deleteMax(i, newArray);
 		}
-//		for (int i = 0; i < size; i ++) {
-//			array[i] = newArray[i];
-//		}
 	}
 	
 	private static int rightChildPos(int pos) {
@@ -67,6 +59,14 @@ public class HeapSort {
 				}
 			}
 		}
+	}
+	
+	private static int deleteMax(int i, int[] array) {
+		int max = array[0];
+		swap(0, i, array);
+		// one line of code to decrease the size of array by 1 and conduct the loop algo again
+		downMaxHeap(0, array);
+		return max;
 	}
 	
 	private static void swap(int i, int j, int[] array) {
