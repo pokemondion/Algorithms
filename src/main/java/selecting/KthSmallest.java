@@ -25,13 +25,12 @@ public class KthSmallest {
 	}
 	
 	public int quickSelect(int[] arr, int k, int left, int right) {
-		int randomIndex = (int) (right - left + 1 * Math.random());
-//		int randomElement = arr[randomIndex];
+		int randomIndex = (int) (right - left + 1 * Math.random()) + left;
 		int pivot = partition(arr, randomIndex, left, right);
-		if (pivot - left >= k) {
+		if (pivot - left >= k + left) {
 			return quickSelect(arr, k, left, pivot - 1);
 		}
-		else if (arr.length - (right - pivot) >= k) {
+		else if (arr.length - (right - pivot) >= k + left) {
 			return arr[pivot];
 		}
 		else {
