@@ -20,11 +20,11 @@ package selecting;
  */
 public class KthSmallest {
 	
-	public int kthSmallest(int[] arr, int k) {
+	public static int kthSmallest(int[] arr, int k) {
 		return quickSelect(arr, k, 0, arr.length-1);
 	}
 	
-	public int quickSelect(int[] arr, int k, int left, int right) {
+	private static int quickSelect(int[] arr, int k, int left, int right) {
 		int randomIndex = (int) (right - left + 1 * Math.random()) + left;
 		int pivot = partition(arr, randomIndex, left, right);
 		if (pivot - left >= k + left) {
@@ -34,11 +34,11 @@ public class KthSmallest {
 			return arr[pivot];
 		}
 		else {
-			return quickSelect(arr, k - arr.length + (right - pivot), pivot + 1, right);
+			return quickSelect(arr, k + left - arr.length + (right - pivot), pivot + 1, right);
 		}
 	}
 	
-	public int partition(int[] arr, int randomIndex, int left, int right) {
+	private static int partition(int[] arr, int randomIndex, int left, int right) {
 		int i = left - 1, j = left;
 		while (j <= right) {
 			if (j == randomIndex) {
@@ -58,15 +58,10 @@ public class KthSmallest {
 		return i;
 	}
 	
-	private void swap(int[] array, int i, int j) {
+	private static void swap(int[] array, int i, int j) {
 		int temp = array[i];
 		array[i] = array[j];
 		array[j] = temp;
 	}
 
-	public static void main(String[] args) {
-		KthSmallest p = new KthSmallest();
-		int[] arr = {2,5,3,6,7,4};
-		System.out.println(p.kthSmallest(arr, 6));
-	}
 }

@@ -4,6 +4,7 @@ import java.util.Arrays;
 
 public class HeapSort {
 	
+	// fix this method
 	public static void HeapHippityHopSort(int[] array) {
 		int size = array.length;
 		int[] newArray = Arrays.copyOf(array, size);
